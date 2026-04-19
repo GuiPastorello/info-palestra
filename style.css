@@ -1,13 +1,13 @@
-body{
+body {
     margin: 0;
     background-color: #F4F4F4;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
-header{
+header {
     width: 100vw;
     background-color: white;
     display: flex;
@@ -15,17 +15,18 @@ header{
     justify-content: space-between;
     align-items: center;
     box-shadow: -1px 10px 108px -16px rgba(0, 0, 0, 0.131);
-        position: sticky;
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
-.header{
+
+.header {
     padding-bottom: 1%;
     padding-right: 1%;
     margin-right: 2%;
 }
 
-.container_logo{
+.container_logo {
     margin-left: 20px;
     display: flex;
     flex-direction: row;
@@ -33,7 +34,7 @@ header{
     align-items: center;
 }
 
-.nav_bar{
+.nav_bar {
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -42,27 +43,31 @@ header{
     text-decoration: none;
     color: inherit;
 }
-a{
+
+a {
     text-decoration: none;
     color: inherit;
 }
-#home{
+
+#home {
     font-weight: 700;
 }
 
-.cadastro_e_login{
-margin-right: 40px;
+.cadastro_e_login {
+    margin-right: 40px;
 }
-.botao_login{
-    font-family: 'Poppins',sans-serif;
+
+.botao_login {
+    font-family: 'Poppins', sans-serif;
     color: #0E7905;
     background-color: #ffffff00;
     border: 1px #0E7905 solid;
     border-radius: 10px;
-     width: 110px;
-     height: 37px;
+    width: 110px;
+    height: 37px;
 }
-.botao_login:hover{
+
+.botao_login:hover {
     cursor: pointer;
     color: white;
     background-color: #0E7905;
@@ -70,16 +75,18 @@ margin-right: 40px;
     transform: scale(1.06);
     transition: 0.28s;
 }
-.botao_cadastro{
+
+.botao_cadastro {
     color: #B82A2A;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     border: 1px #B82A2A solid;
     background-color: #ffffff00;
     border-radius: 10px;
     width: 130px;
     height: 37px;
 }
-.botao_cadastro:hover{
+
+.botao_cadastro:hover {
     cursor: pointer;
     color: white;
     background-color: #B82A2A;
@@ -88,7 +95,7 @@ margin-right: 40px;
     transition: 0.28s;
 }
 
-.banner{
+.banner {
     background-image: url(./img/banner.svg);
     background-size: cover;
     background-position: center;
@@ -100,53 +107,157 @@ margin-right: 40px;
     flex-direction: column;
 }
 
-.container_banner{
+.container_banner {
     color: white;
-    display: flex;  
+    display: flex;
     align-items: center;
     max-width: 40%;
 
 }
 
-.logo_banner{
+.logo_banner {
     max-height: max-content;
 }
-.conteudo_banner{
+
+.conteudo_banner {
     margin-left: 30px;
     max-width: 70%;
 }
 
-.container_banner div h1{
+.container_banner div h1 {
     font-size: 45px;
     font-style: italic;
     font-weight: bold;
 }
-.container_banner div p{
+
+.container_banner div p {
     color: #f4f4f4ae;
     font-size: 15px;
-    font-weight:lighter;
+    font-weight: lighter;
 }
-.container_banner div h1 span{
+
+.container_banner div h1 span {
     color: #ef1b1b;
 }
+
+.oque_info {
+    height: 100dvh;
+    background-color: #F4F4F4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .conteudo_oqinfo{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-}
-.oque_info{
-height: 100vh;
-display: flex;
-}
-
-.conteudo_oque{
-    height: 90%;    
-    width: 40%;
-}
-
-.img_fodase{
-    height: clamp(30px, 80dvh, 90dvh);
+    display: flex;
+    flex-direction: row;
+    height: 70%;
+    gap: 70px;
     
-    border-radius: 20px;
+}
+.conteudo_oque{
+    width: 50%;
+    height: 100%;
+    text-align: end;
+}
+.conteudo_oque h1{
+font-size: 10vh;
+color: #1D7747;
+font-weight: 400;
+}
+.conteudo_oque p{
+font-size: 4vh ;
+color: #000000;
+
+}
+.bold_text{
+    font-weight: 800;}
+.imagem{
+    border-left: 3px #1D7747 solid;
+    width: 50%;
+}
+.img_palmeiras{
+border-radius: 20px;
+height: 100%;
+display: flex;
+align-self: end;
+justify-self: end;
+}
+.o_porque_do_amor{
+    height: 100dvh;
+    background-color: #1D7747;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo_porque{
+    margin: 30px;
+    background-color: white;
+    width: 50%;
+    height: 20%;
+    
+    font-size: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #1D7747;
+}
+.titulo_porque h1{
+    font-weight: 400;
+}
+footer{
+    height: 70dvh;
+    background-color: #1D7747;
+    box-shadow: -2px -15px 73px 1px rgba(0,0,0,0.26);
+}
+
+.titulos_footer{
+    height: 40%;
+    background-color: #F4F4F4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.titulos_footer img{
+    height: 40%;
+}
+.footer_footer{
+    height: 60%;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.logo_footer{
+    height: 80%;
+}
+
+.hr {
+    width: 100%;
+    border: 0;
+    border-top: 2px solid rgb(255, 255, 255); 
+    background-color: transparent; 
+}
+.footer_footer{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: 500;
+}
+
+.conteudo_oporque{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.bold_p{
+    font-weight: 600;
 }
