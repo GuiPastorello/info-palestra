@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins',Arial, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+
+.login {
+  background-color: white;
+  width: 50vw;
+  height: 90dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.login a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1rem;
+  width: fit-content;
+}
+
+.login_bloco {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+}
+
+form h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+form label {
+  font-size: 0.8rem;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+form input {
+  height: 34px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #1a6b3c;
+}
+
+form button {
+  height: 36px;
+  background: #1a6b3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+form button:hover {
+  background: #145530;
+}
+
+.imagem {
+  background-color: #1a6b3c;
+  width: 50dvw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem img {
+  width: 70%;
+}
+.retorno {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.9rem;
+}
+
+.retorno:hover {
+  background: #1a6b3c;
+  color: #ffffff;
+}
+
+.loading-div {
+  width: 50px;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+#div_erros_login {
+  display: none
+}
+
+#div_erros_login{
+  color: firebrick;
+}

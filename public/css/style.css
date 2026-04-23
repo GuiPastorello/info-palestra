@@ -55,48 +55,57 @@ a {
 
 .cadastro_e_login {
     margin-right: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .botao_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Poppins', sans-serif;
     color: #0E7905;
     background-color: #ffffff00;
     border: 1px #0E7905 solid;
     border-radius: 10px;
-    width: 110px;
-    height: 37px;
+    padding-inline: 25px;
+    padding-block: 6px;
 }
 
 .botao_login:hover {
     cursor: pointer;
     color: white;
-    background-color: #0E7905;
+    background-color: #0a4e03;
     border: 1px white solid;
-    transform: scale(1.06);
+    transform: scale(1.09);
     transition: 0.28s;
 }
 
 .botao_cadastro {
-    color: #B82A2A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Poppins', sans-serif;
-    border: 1px #B82A2A solid;
+    color: #b80101;
     background-color: #ffffff00;
+    border: 1px #b80101 solid;
     border-radius: 10px;
-    width: 130px;
-    height: 37px;
+    padding-inline: 25px;
+    padding-block: 6px;
 }
 
 .botao_cadastro:hover {
     cursor: pointer;
     color: white;
-    background-color: #B82A2A;
+    background-color: #470d0d;
     border: 1px white solid;
-    transform: scale(1.06);
+    transform: scale(1.09);
     transition: 0.28s;
 }
 
 .banner {
-    background-image: url(./img/banner.svg);
+    background-image: url(../assets/imgs/banner.svg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -149,6 +158,8 @@ a {
     align-items: center;
     margin-left: 5%;
     margin-right: 5%;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 .conteudo_oqinfo{
@@ -164,9 +175,11 @@ a {
     text-align: end;
 }
 .conteudo_oque h1{
+    
 font-size: 10vh;
 color: #1D7747;
 font-weight: 400;
+line-height: 0.7;
 }
 .conteudo_oque p{
 font-size: 4vh ;
@@ -174,7 +187,12 @@ color: #000000;
 
 }
 .bold_text{
-    font-weight: 800;}
+    font-weight: 800;
+}
+
+    .bold_text2{
+    font-weight: 800;
+    color: #ff0000;}
 .imagem{
     border-left: 3px #1D7747 solid;
     width: 50%;
@@ -225,7 +243,7 @@ footer{
     justify-content: center;
 }
 .titulos_footer img{
-    height: 40%;
+    height: 50%;
 }
 .footer_footer{
     height: 60%;  
@@ -256,8 +274,27 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 80%;
+    gap: 100px;
 }
 
 .bold_p{
     font-weight: 600;
+}
+
+.container_conteudo_porque h1{
+    font-size: 60px;
+    line-height: 0.8;
+    color: white;
+    font-weight: lighter;
+    width: 76%;
+}
+
+.container_conteudo_porque p{
+    font-size: 30px;
+    line-height: 0.8;
+    color: white;
+}
+.container_conteudo_porque{
+    width: 70%;
 }
