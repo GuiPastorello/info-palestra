@@ -6,57 +6,38 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
+CREATE DATABASE infoPalestra;
+USE infoPalestra;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+nickname VARCHAR(20) NOT NULL,
+email VARCHAR(20) NOT NULL,
+senha VARCHAR(15) NOT NULL
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE questao (
+id INT PRIMARY KEY AUTO_INCREMENT,
+descricao VARCHAR(255)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE tentativa (
+id_tentativa INT PRIMARY KEY AUTO_INCREMENT,
+fk_usuario INT NOT NULL,
+hora_inicio TIME DEFAULT (CURRENT_TIME),
+hora_fim TIME,
+CONSTRAINT cfk_usuario FOREIGN KEY (fk_usuario) REFERENCES usuario(id_usuario) 
+) auto_increment = 1000;
+
+CREATE TABLE respostaQuestao(
+id_resposta INT,
+fk_questao INT ,
+fk_tentativa INT,
+acertou TINYINT,
+PRIMARY KEY (id_resposta, fk_questao),
+CONSTRAINT cfk_questao FOREIGN KEY (fk_questao) REFERENCES questao(id),
+CONSTRAINT cfk_tentativa FOREIGN KEY (fk_tentativa) REFERENCES tentativa(id_tentativa)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+SELECT * FROM usuario;
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
-
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);

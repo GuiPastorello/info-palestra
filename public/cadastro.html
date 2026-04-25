@@ -11,7 +11,7 @@
   <script src="./js/sessao.js"></script>
 </head>
 
-<body onload="listar()">
+<body>
   <main>
 
     <div class="imagem">
@@ -31,9 +31,7 @@
 
         <form>
           <h1>Cadastro</h1>
-          <label for="codigo_input">Código de ativação:</label>
-          <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          <label for="nome_input">Nome:</label>
+          <label for="nome_input">Nome de usuario:</label>
           <input id="nome_input" type="text" placeholder="Seu nome" />
           <label for="email_input">Email:</label>
           <input type="text" id="email_input" name="email" required placeholder="meuemail@provedor.com">
@@ -65,8 +63,6 @@
     console.log('Formulário submetido sem recarregar!');
     // Aqui você chama sua função AJAX ou processamento
   });
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
 
   function cadastrar() {
 
@@ -76,16 +72,13 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -95,19 +88,6 @@
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
-    }
-
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
     }
 
     // Enviando o valor da nova input
@@ -122,7 +102,6 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
       }),
     })
       .then(function (resposta) {
@@ -152,25 +131,6 @@
     return false;
   }
 
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
 
   function sumirMensagem() {
     cardErro.style.display = "none";

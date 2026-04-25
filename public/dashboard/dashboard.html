@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -80,6 +79,11 @@
 </html>
 
 <script>
+    // Validar sessão antes de carregar a página
+    if (!sessionStorage.NOME_USUARIO) {
+        window.location = "../login.html";
+    }
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
