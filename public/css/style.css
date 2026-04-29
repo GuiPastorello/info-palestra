@@ -162,49 +162,57 @@ a {
     scrollbar-width: none;
 }
 
-.conteudo_oqinfo{
+.conteudo_oqinfo {
     display: flex;
     flex-direction: row;
     height: 70%;
     gap: 70px;
-    
+
 }
-.conteudo_oque{
+
+.conteudo_oque {
     width: 50%;
     height: 100%;
     text-align: end;
 }
-.conteudo_oque h1{
-    
-font-size: 10vh;
-color: #1D7747;
-font-weight: 400;
-line-height: 0.7;
+
+.conteudo_oque h1 {
+
+    font-size: 10vh;
+    color: #1D7747;
+    font-weight: 400;
+    line-height: 0.7;
 }
-.conteudo_oque p{
-font-size: 4vh ;
-color: #000000;
+
+.conteudo_oque p {
+    font-size: 4vh;
+    color: #000000;
 
 }
-.bold_text{
+
+.bold_text {
     font-weight: 800;
 }
 
-    .bold_text2{
+.bold_text2 {
     font-weight: 800;
-    color: #ff0000;}
-.imagem{
+    color: #ff0000;
+}
+
+.imagem {
     border-left: 3px #1D7747 solid;
     width: 50%;
 }
-.img_palmeiras{
-border-radius: 20px;
-height: 100%;
-display: flex;
-align-self: end;
-justify-self: end;
+
+.img_palmeiras {
+    border-radius: 20px;
+    height: 100%;
+    display: flex;
+    align-self: end;
+    justify-self: end;
 }
-.o_porque_do_amor{
+
+.o_porque_do_amor {
     height: 100dvh;
     background-color: #1D7747;
     display: flex;
@@ -212,12 +220,12 @@ justify-self: end;
     flex-direction: column;
 }
 
-.titulo_porque{
+.titulo_porque {
     margin: 30px;
     background-color: white;
     width: 50%;
     height: 20%;
-    
+
     font-size: 3vh;
     display: flex;
     flex-direction: column;
@@ -225,16 +233,18 @@ justify-self: end;
     text-align: center;
     color: #1D7747;
 }
-.titulo_porque h1{
+
+.titulo_porque h1 {
     font-weight: 400;
 }
-footer{
+
+footer {
     height: 70dvh;
     background-color: #1D7747;
-    box-shadow: -2px -15px 73px 1px rgba(0,0,0,0.26);
+    box-shadow: -2px -15px 73px 1px rgba(0, 0, 0, 0.26);
 }
 
-.titulos_footer{
+.titulos_footer {
     height: 40%;
     background-color: #F4F4F4;
     display: flex;
@@ -242,35 +252,38 @@ footer{
     align-items: center;
     justify-content: center;
 }
-.titulos_footer img{
+
+.titulos_footer img {
     height: 50%;
 }
-.footer_footer{
-    height: 60%;  
+
+.footer_footer {
+    height: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
 }
 
-.logo_footer{
+.logo_footer {
     height: 80%;
 }
 
 .hr {
     width: 100%;
     border: 0;
-    border-top: 2px solid rgb(255, 255, 255); 
-    background-color: transparent; 
+    border-top: 2px solid rgb(255, 255, 255);
+    background-color: transparent;
 }
-.footer_footer{
+
+.footer_footer {
     font-family: 'Poppins', sans-serif;
     color: white;
     font-weight: 500;
 }
 
-.conteudo_oporque{
+.conteudo_oporque {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -278,11 +291,11 @@ footer{
     gap: 100px;
 }
 
-.bold_p{
+.bold_p {
     font-weight: 600;
 }
 
-.container_conteudo_porque h1{
+.container_conteudo_porque h1 {
     font-size: 60px;
     line-height: 0.8;
     color: white;
@@ -290,11 +303,100 @@ footer{
     width: 76%;
 }
 
-.container_conteudo_porque p{
+.container_conteudo_porque p {
     font-size: 30px;
     line-height: 0.8;
     color: white;
 }
-.container_conteudo_porque{
+
+.container_conteudo_porque {
     width: 70%;
+}
+
+
+.timeline-container {
+    position: relative;
+    max-width: 1300px;
+    margin: 50px auto;
+    padding: 40px 0;
+}
+
+
+.linha-central {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #2e8b57;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+
+.timelineImagens {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 3;
+}
+
+
+.conteudoesquerda,
+.conteudodireita {
+    width: 45%;
+}
+
+
+.textodireita {
+    text-align: right;
+}
+
+
+.textoano h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #d32f2f;
+    font-size: 45px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.textoano h3 {
+    color: #2e8b57;
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.textoano p {
+    color: #333;
+    line-height: 1.5;
+}
+
+.timelineImagens img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+.titulo_historia {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 70px;
+}
+
+.titulo_historia h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #1D7747;
+    font-size: 80px;
+}
+
+.titulo_historia img {
+    width: 100px;
 }
