@@ -1,120 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="icon" href="./img/image5.svg">
-    <link rel="stylesheet" href=".\css\style.css">
-    <script src="./js/sessao.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="assets/imgs/fav_icon.png">
+  <link rel="stylesheet" href=".\css\style.css">
+  <script src="./js/sessao.js"></script>
+  <script src="./js/user.js"></script>
 </head>
+
 <body>
+
+  <body onload="header_validacao()">
     <header class="header">
+      <div class="header_container">
+
         <div class="container_logo">
-            <img src="./assets/imgs/image5.svg"><span>InfoPalestra</span>
+          <img src="./assets/imgs/image5.svg"><span>InfoPalestra</span>
         </div>
+
         <nav>
-            <ul class="nav_bar">
-                <li id="home"><a href="./index.html" >Home</a></li>
-                <li id="historia"><a href="./historia.html" class="pag_atual">Historia</a></li>
-                <li id="quiz"><a href="./dashboard/quiz.html">Quiz</a></li>
-            </ul>
+          <ul class="nav_bar">
+            <li id="home"><a href="./index.html" class="pag_atual">Home</a></li>
+            <li id="historia"><a href="./historia.html">Historia</a></li>
+            <li id="quiz"><a href="./quiz.html">Quiz</a></li>
+          </ul>
         </nav>
-        <div class="cadastro_e_login">
-            <a class="botao_login" href="login.html">Login</a>
-            <a class="botao_cadastro" href="cadastro.html">Cadastrar-se</a>
+
+        <div class="cadastro_e_login" id="login_id">
+          <a class="botao_login" href="login.html">Login</a>
+          <a class="botao_cadastro" href="cadastro.html">Cadastrar-se</a>
         </div>
+
+        <a class="usuario" id="user_id">
+
+          <img src="assets/imgs/user.svg" alt="">
+          <span id="b_usuario">Usuario</span>
+
+        </a>
+
+      </div>
     </header>
+
     <main>
-         <div class="titulo_historia">
-            <h1>História do Palmeiras</h1>
-            <img src="./assets/imgs/logo_savoia.png" alt="">
+      <div class="titulo_historia">
+        <h1>História do Palmeiras</h1>
+        <img src="./assets/imgs/logo_savoia.png" alt="">
+      </div>
+      <section class="timeline-container">
+        <div class="linha-central">
+          <div class="bolinha-scroll"></div>
         </div>
-        <section class="timeline-container">
-  <div class="linha-central">
-    <div class="bolinha-scroll"></div>
-  </div>
 
-  <div class="timelineImagens">
-    <div class="conteudoesquerda">
-      <img src="./assets/imgs/time_1914.png">
-    </div>
-    <div class="conteudodireita textoano">
-      <h2>1914</h2>
-     <h3>Nascimento da Sociedade Esportiva <span class="bold_text">Palmeiras</span></h3>
-      <p>A trajetória da Sociedade Esportiva Palmeiras teve início em 26 de agosto de 1914, fruto da iniciativa de imigrantes italianos radicados em São Paulo, que batizaram a agremiação originalmente como Palestra Italia.</p>
-    </div>
-  </div>
+        <div class="timelineImagens">
+          <div class="conteudoesquerda">
+            <img src="./assets/imgs/time_1914.png">
+          </div>
+          <div class="conteudodireita textoano">
+            <h2>1914</h2>
+            <h3>Nascimento da Sociedade Esportiva <span class="bold_text">Palmeiras</span></h3>
+            <p>A trajetória da Sociedade Esportiva Palmeiras teve início em 26 de agosto de 1914, fruto da iniciativa de
+              imigrantes italianos radicados em São Paulo, que batizaram a agremiação originalmente como Palestra
+              Italia.</p>
+          </div>
+        </div>
 
-  <div class="timelineImagens">
-    <div class="conteudoesquerda textoano textodireita">
-      <h2>1951</h2>
-      <h3><span class="bold_text">Palmeiras</span> é consagrado como primeiro <span class="bold_text">Campeão Mundial</span></h3>
-      <p>Entre o final da década de 40 e o início dos anos 50, o Palmeiras viveu uma fase gloriosa, coroada com a conquista de um de seus troféus internacionais mais prestigiados. No Maracanã, diante de uma plateia superior a 100 mil torcedores, o time paulista superou a Juventus da italia na decisão da Copa Rio de 1951. Anos mais tarde, a relevância do torneio foi ratificada pela FIFA, que o reconheceu como a primeira edição do Mundial de Clubes.</p>
-    </div>
-    <div class="conteudodireita">
-      <img src="./assets/imgs/time_1951.png">
-      </div>
-  </div>
+        <div class="timelineImagens">
+          <div class="conteudoesquerda textoano textodireita">
+            <h2>1951</h2>
+            <h3><span class="bold_text">Palmeiras</span> é consagrado como primeiro <span class="bold_text">Campeão
+                Mundial</span></h3>
+            <p>Entre o final da década de 40 e o início dos anos 50, o Palmeiras viveu uma fase gloriosa, coroada com a
+              conquista de um de seus troféus internacionais mais prestigiados. No Maracanã, diante de uma plateia
+              superior a 100 mil torcedores, o time paulista superou a Juventus da italia na decisão da Copa Rio de
+              1951. Anos mais tarde, a relevância do torneio foi ratificada pela FIFA, que o reconheceu como a primeira
+              edição do Mundial de Clubes.</p>
+          </div>
+          <div class="conteudodireita">
+            <img src="./assets/imgs/time_1951.png">
+          </div>
+        </div>
 
-   <div class="timelineImagens">
-    <div class="conteudoesquerda">
-      <img src="./assets/imgs/time_1965.png">
-    </div>
-    <div class="conteudodireita textoano">
-      <h2>1965</h2>
-     <h3>A primeira <span class="bold_text">Academia de Futebol</span></h3>
-      <p>A era da Academia. Sob o comando de Ademir da Guia, o Palmeiras encantou o Brasil com um futebol de gala. O prestígio era tão grande que, em 1965, o elenco alviverde vestiu a 'Amarelinha' e representou a Seleção Brasileira em uma vitória sobre o Uruguai.</p>
-    </div>
-  </div>
+        <div class="timelineImagens">
+          <div class="conteudoesquerda">
+            <img src="./assets/imgs/time_1965.png">
+          </div>
+          <div class="conteudodireita textoano">
+            <h2>1965</h2>
+            <h3>A primeira <span class="bold_text">Academia de Futebol</span></h3>
+            <p>A era da Academia. Sob o comando de Ademir da Guia, o Palmeiras encantou o Brasil com um futebol de gala.
+              O prestígio era tão grande que, em 1965, o elenco alviverde vestiu a 'Amarelinha' e representou a Seleção
+              Brasileira em uma vitória sobre o Uruguai.</p>
+          </div>
+        </div>
 
-  <div class="timelineImagens">
-    <div class="conteudoesquerda textoano textodireita">
-      <h2>1999</h2>
-      <h3>A <span class="bold_text">Glória Eterna</span> da América</h3>
-      <p>Liderado pelo "Santo" Marcos no gol e craques como Alex e Paulo Nunes, o Palmeiras conquistou sua primeira Copa Libertadores da América em uma final dramática contra o Deportivo Cali no antigo Palestra Italia.</p>
-    </div>
-    <div class="conteudodireita">
-      <img src="./assets/imgs/time_1999.png">
-      </div>
-  </div>
+        <div class="timelineImagens">
+          <div class="conteudoesquerda textoano textodireita">
+            <h2>1999</h2>
+            <h3>A <span class="bold_text">Glória Eterna</span> da América</h3>
+            <p>Liderado pelo "Santo" Marcos no gol e craques como Alex e Paulo Nunes, o Palmeiras conquistou sua
+              primeira Copa Libertadores da América em uma final dramática contra o Deportivo Cali no antigo Palestra
+              Italia.</p>
+          </div>
+          <div class="conteudodireita">
+            <img src="./assets/imgs/time_1999.png">
+          </div>
+        </div>
 
-  <div class="timelineImagens">
-    <div class="conteudoesquerda">
-      <img src="./assets/imgs/time_2015.png">
-    </div>
-    <div class="conteudodireita textoano">
-      <h2>2015-2016</h2>
-     <h3>A <span class="bold_text">Reconstrução</span> e a <span class="bold_text">Volta por Cima</span></h3>
-      <p>A volta do gigante. Com a inauguração do Allianz Parque e uma gestão moderna, o Palmeiras retomou seu protagonismo. Após o título da Copa do Brasil de 2015, o Verdão conquistou o Enea campeonato brasileiro em 2016, reafirmando sua posição como o maior campeão do Brasil.</p>
-    </div>
-  </div>
+        <div class="timelineImagens">
+          <div class="conteudoesquerda">
+            <img src="./assets/imgs/time_2015.png">
+          </div>
+          <div class="conteudodireita textoano">
+            <h2>2015-2016</h2>
+            <h3>A <span class="bold_text">Reconstrução</span> e a <span class="bold_text">Volta por Cima</span></h3>
+            <p>A volta do gigante. Com a inauguração do Allianz Parque e uma gestão moderna, o Palmeiras retomou seu
+              protagonismo. Após o título da Copa do Brasil de 2015, o Verdão conquistou o Enea campeonato brasileiro em
+              2016, reafirmando sua posição como o maior campeão do Brasil.</p>
+          </div>
+        </div>
 
-  <div class="timelineImagens">
-    <div class="conteudoesquerda textoano textodireita">
-      <h2>2020-Atualmente</h2>
-      <h3>A Terceira Academia (Era Abel Ferreira)</h3>
-      <p>A Terceira Academia. A chegada de Abel Ferreira deu início a uma das eras mais vitoriosas da história alviverde. Com um futebol resiliente e estratégico, o Palmeiras conquistou o histórico Bicampeonato da Libertadores (2020 e 2021) e segue dominando o cenário nacional.</p>
-    </div>
-    <div class="conteudodireita">
-      <img src="./assets/imgs/time_2020.png">
-      </div>
-  </div>
-  
-  </section>
+        <div class="timelineImagens">
+          <div class="conteudoesquerda textoano textodireita">
+            <h2>2020-Atualmente</h2>
+            <h3>A Terceira Academia (Era Abel Ferreira)</h3>
+            <p>A Terceira Academia. A chegada de Abel Ferreira deu início a uma das eras mais vitoriosas da história
+              alviverde. Com um futebol resiliente e estratégico, o Palmeiras conquistou o histórico Bicampeonato da
+              Libertadores (2020 e 2021) e segue dominando o cenário nacional.</p>
+          </div>
+          <div class="conteudodireita">
+            <img src="./assets/imgs/time_2020.png">
+          </div>
+        </div>
+
+      </section>
     </main>
     <footer>
-        <div class="titulos_footer">
-            <img src="assets/imgs/footer_titulos.png" alt="InfoPalestra">
-        </div>
-        <div class="footer_footer">
-            <img class="logo_footer" src="assets/imgs/logo_footer.svg" alt="InfoPalestra">
+      <div class="titulos_footer">
+        <img src="assets/imgs/footer_titulos.png" alt="InfoPalestra">
+      </div>
+      <div class="footer_footer">
+        <img class="logo_footer" src="assets/imgs/logo_footer.svg" alt="InfoPalestra">
 
-            <div class="hr"></div>
+        <div class="hr"></div>
 
-            <p> &copy; 2026 InfoPalestra. Todos os direitos reservados.</p>
-        </div>
+        <p> &copy; 2026 InfoPalestra. Todos os direitos reservados.</p>
+      </div>
     </footer>
-</body>
+  </body>
+
 </html>
-   

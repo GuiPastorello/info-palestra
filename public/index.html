@@ -7,28 +7,46 @@
     <title>InfoPalestra | Tela Inicial</title>
     <link rel="stylesheet" href=".\css\style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="icon" href="./img/image5.svg">
+
+    <link rel="icon" href="assets/imgs/fav_icon.png">
     <script src="./js/sessao.js"></script>
+    <script src="./js/user.js"></script>
 </head>
 
-<body>
+<body onload="header_validacao()">
+    <!-- HEADER -->
     <header class="header">
-        <div class="container_logo">
-            <img src="./assets/imgs/image5.svg"><span>InfoPalestra</span>
-        </div>
-        <nav>
-            <ul class="nav_bar">
-                <li id="home"><a href="./index.html" class="pag_atual">Home</a></li>
-                <li id="historia"><a href="./historia.html">Historia</a></li>
-                <li id="quiz"><a href="#">Quiz</a></li>
-            </ul>
-        </nav>
-        <div class="cadastro_e_login">
-            <a class="botao_login" href="login.html">Login</a>
-            <a class="botao_cadastro" href="cadastro.html">Cadastrar-se</a>
+        <div class="header_container">
+
+            <div class="container_logo">
+                <img src="./assets/imgs/image5.svg"><span>InfoPalestra</span>
+            </div>
+
+            <nav>
+                <ul class="nav_bar">
+                    <li id="home"><a href="./index.html" class="pag_atual">Home</a></li>
+                    <li id="historia"><a href="./historia.html">Historia</a></li>
+                    <li id="quiz"><a href="./quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+
+            <div class="cadastro_e_login" id="login_id">
+                <a class="botao_login" href="login.html">Login</a>
+                <a class="botao_cadastro" href="cadastro.html">Cadastrar-se</a>
+            </div>
+            
+            <a class="usuario" id="user_id">
+                
+                <img src="assets/imgs/user.svg" alt="">
+                <span id="b_usuario">Usuario</span>
+                
+            </a>
+
         </div>
     </header>
+
     <main>
+        <!-- BANNER -->
         <div class="banner">
             <div class="container_banner">
                 <div class="logo_banner"> <img src="assets/imgs/logo_palmeiras.svg"></div>
@@ -39,13 +57,16 @@
                 </div>
             </div>
         </div>
+        <!-- SESSAO INFO -->
         <div class="oque_info">
             <div class="conteudo_oqinfo">
                 <div class="conteudo_oque">
                     <h1 class="titulo_oque">O que exatamente é o <span class="bold_text">InfoPalestra?</span></h1>
                     <p class="conteudo_oque_p">Este é um projeto pessoal desenvolvido por um palmeirense apaixonado para
-                        a <span class="bold_p">Família Palmeiras</span>, unindo tecnologia e tradição. O site nasceu como parte de um desafio
-                        acadêmico na <span class="bold_p">SPTech (São Paulo Tech School)</span>, onde o objetivo foi transformar dados e paixão em
+                        a <span class="bold_p">Família Palmeiras</span>, unindo tecnologia e tradição. O site nasceu
+                        como parte de um desafio
+                        acadêmico na <span class="bold_p">SPTech (São Paulo Tech School)</span>, onde o objetivo foi
+                        transformar dados e paixão em
                         uma experiência digital única para o torcedor alviverde.</p>
                 </div>
                 <div class="imagem">
@@ -54,6 +75,7 @@
             </div>
         </div>
 
+        <!-- SESSAO PORQUE -->
         <div class="o_porque_do_amor">
 
             <div class="titulo_porque">
@@ -75,10 +97,10 @@
                         interdum, ac aliquet odio mattis.</p>
                 </div>
 
-            
-        </div>
 
+            </div>
     </main>
+    <!-- FOOTER -->
     <footer>
         <div class="titulos_footer">
             <img src="assets/imgs/footer_titulos.png" alt="InfoPalestra">

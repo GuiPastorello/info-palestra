@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./css/logincadastro.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-        <link rel="icon" href=".\img\image5.svg">
+    <link rel="icon" href="assets/imgs/fav_icon.png">
     <script src="./js/sessao.js"></script>
 </head>
+
 <body>
     <main>
         <div class="login">
-            <a href="index.html" class="retorno"> <span><</span> </a>
+            <a href="index.html" class="retorno">
+                <span> < </span>
+            </a>
             <div class="login_bloco">
-            
-            
-            <form>
-                <h1>Login</h1>
-                <label for="email_input">Usuário:</label>
-                <input type="text" id="email_input" name="username" required placeholder="Login">
-                <label for="senha_input">Senha:</label>
-                <input type="password" id="senha_input" name="password" required placeholder="******">
-                <div id="div_erros_login"></div>
-                <button class="botao" onclick="entrar()">Entrar</button>
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/loading.gif" id="loading-gif">
-                </div>
-            </form>
-                            
 
-                
+
+                <form>
+                    <h1>Login</h1>
+                    <label for="email_input">Usuário:</label>
+                    <input type="text" id="email_input" name="username" required placeholder="Login">
+                    <label for="senha_input">Senha:</label>
+                    <input type="password" id="senha_input" name="password" required placeholder="******">
+                    <div id="div_erros_login"></div>
+                    <button class="botao" onclick="entrar()">Entrar</button>
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./assets/loading.gif" id="loading-gif">
+                    </div>
+                </form>
+
+
+
             </div>
         </div>
         <div class="imagem">
             <img src="./assets/imgs/Logo_infopalestra.svg">
         </div>
-</main>
+    </main>
 </body>
+
 </html>
 
 <script>
-    
-    document.querySelector('form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Impede o envio padrão/recarregamento
-  console.log('Formulário submetido sem recarregar!');
-  // Aqui você chama sua função AJAX ou processamento
-});
+
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Impede o envio padrão/recarregamento
+        console.log('Formulário submetido sem recarregar!');
+        // Aqui você chama sua função AJAX ou processamento
+    });
 
     function entrar() {
         aguardar();
@@ -83,14 +88,16 @@
                 console.log(resposta);
 
                 resposta.json().then(json => {
+                    console.log(`RESPOSTAAAAAAAAAAAAAAAAAAAAAAAAAAA `)
                     console.log(json);
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id_usuario;
+                    sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        // window.location = "./dashboard/cards.html";
+                        window.location = "indexcCopy.html"
                     }, 1000); // apenas para exibir o loading
 
                 });
