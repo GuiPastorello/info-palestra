@@ -2,7 +2,7 @@
 
 function header_validacao() {
     let usuario = document.querySelector(`#user_id`);
-    let login = document.querySelector(`#login_id`)
+    let login = document.querySelector(`#login_id`);
 
     var nome = sessionStorage.NOME_USUARIO;
     var email = sessionStorage.EMAIL_USUARIO;
@@ -19,5 +19,20 @@ function header_validacao() {
 
         usuario.style.display = `flex`
         login.style.display = `none`
+    }
+
+}
+function quiz_validacao() {
+    let usuario = document.querySelector(`#user_id`);
+    let login = document.querySelector(`#login_id`);
+
+    var nome = sessionStorage.NOME_USUARIO;
+    var email = sessionStorage.EMAIL_USUARIO;
+    var id = sessionStorage.ID_USUARIO;
+
+    if (email == null || id == null) {
+        window.location = "login.html"
+    } else {
+        window.location = "quiz.html"
     }
 }

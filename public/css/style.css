@@ -26,11 +26,6 @@ header {
     align-items: center;
     width: 90%;
 }
-/* .header {
-    padding-bottom: 1%;
-    padding-right: 1%;
-    margin-right: 2%;
-} */
 
 .container_logo {
     /* margin-left: 20px; */
@@ -54,6 +49,9 @@ header {
 a {
     text-decoration: none;
     color: inherit;
+}
+.nav_bar a:hover{
+    cursor: pointer;
 }
 
 .pag_atual {
