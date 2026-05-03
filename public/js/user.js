@@ -36,3 +36,18 @@ function quiz_validacao() {
         window.location = "quiz.html"
     }
 }
+
+function acessarPerfil() {
+    let usuario = document.querySelector(`#user_id`);
+    let login = document.querySelector(`#login_id`);
+
+    var nome = sessionStorage.NOME_USUARIO;
+    var email = sessionStorage.EMAIL_USUARIO;
+    var id = sessionStorage.ID_USUARIO;
+
+    if (email == null || id == null) {
+        window.location = "login.html"
+    } else {
+        window.location = "dash.html"
+    }
+}
