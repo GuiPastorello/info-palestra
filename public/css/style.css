@@ -440,3 +440,33 @@ margin: 90px;
     width: 800px;
 }
 
+/* Dashboard */
+
+.header_dash{
+background-color: #1D7747;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 15%;
+height: 100dvh
+}
+
+.dash_profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.dash_profile img{
+    width: 80px;
+}
+
+.dash_profile_items{
+    display: flex;
+    flex-direction: column;
+    line-height: 6px;
+    justify-content: center;
+    padding: 0px;    
+}
+
