@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz | InfoPalestra</title>
-        <link rel="icon" href="../img/image5.svg">
+    <link rel="icon" href="../img/image5.svg">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/sessao.js"></script>
     <script src="./js/user.js"></script>
+    <script src="./js/quiz.js"></script>
 </head>
-<body onload="header_validacao()">
-<header class="header">
+
+<body onload="header_validacao(), onloadEsconder()">
+    <header class="header">
         <div class="header_container">
 
             <div class="container_logo">
@@ -29,27 +32,98 @@
                 <a class="botao_login" href="login.html">Login</a>
                 <a class="botao_cadastro" href="cadastro.html">Cadastrar-se</a>
             </div>
-            
+
             <a onclick="acessarPerfil()" class="usuario" id="user_id">
-                
+
                 <img src="assets/imgs/user.svg" alt="">
                 <span id="b_usuario">Usuario</span>
-                
+
             </a>
 
         </div>
     </header>
     <main>
         <div class="main-quiz">
-        <div class="titulo_quiz">
-            <h1><span class="bold_text">Quiz </span>- Quanto você sabe sobre a <span class="bold_text">história do Palmeiras?</span></h1>
-            
-            <img src="assets/imgs/image.png">
-            </div>
-            </div>
-    </main> 
+            <div class="titulo_quiz">
+                <h1><span class="bold_text">Quiz </span>- Quanto você sabe sobre a <span class="bold_text">história do
+                        Palmeiras?</span></h1>
 
-        <footer>
+                <img src="assets/imgs/image.png">
+            </div>
+            <div class="div_quiz">
+                <div id="pontuacaoEJogo">
+                    <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+
+                    <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                        <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                            <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                            <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                        </div>
+                        <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                            <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                                <span id="spanPontuacaoFinal">***</span>
+                            </span>
+                            <span id="msgFinal" class="width-fit-content">***</span>
+                        </div>
+                    </div>
+
+                    <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+                        <div id="infoQuestao" class="padding-8">
+                            <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                                    id="qtdQuestoes"></span>
+                                questões.</span>
+                        </div>
+
+                        <div id="perguntaDaQuestaoAtual" class="padding-8">
+                            <span id="spanQuestaoExibida" class="text-bold"></span>
+                        </div>
+
+                        <div id="infoAlternativas" class="padding-8">
+                            <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                        </div>
+
+                        <div id="opcoes" class="flex-colunar padding-8">
+                            <span>
+                                <input type="radio" id="primeiraOpcao" name="option" class="radio"
+                                    value="alternativaA" />
+                                <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                            </span>
+                            <span>
+                                <input type="radio" id="segundaOpcao" name="option" class="radio"
+                                    value="alternativaB" />
+                                <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                            </span>
+                            <span>
+                                <input type="radio" id="terceiraOpcao" name="option" class="radio"
+                                    value="alternativaC" />
+                                <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                            </span>
+                            <span>
+                                <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                                <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                            </span>
+                        </div>
+
+                        <div id="botoes" class="flex-colunar padding-8">
+                            <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                            <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                            <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
+                                novamente</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </main>
+
+    <footer>
         <div class="titulos_footer">
             <img src="assets/imgs/footer_titulos.png" alt="InfoPalestra">
         </div>
@@ -62,4 +136,7 @@
         </div>
     </footer>
 </body>
+<script>
+    
+</script>
 </html>

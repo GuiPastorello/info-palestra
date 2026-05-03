@@ -425,10 +425,101 @@ footer {
     width: 100px;
 }
 
-.main-quiz {
+/* QUIZ */
+.main-quiz{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    justify-self: center;
+    height: 100dvh;
+}
+.titulo_quiz{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 0 10%;
+}
+.titulo_quiz img {
+    width: 800px;
+}
+
+.div_quiz{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo_quiz h1 {
+    font-size: 90px;
+    color: #1D7747;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+
+:root {
+    --primary-brand-color: #0c7027;
+    --secondary-brand-color: #0c7027;
+    --success: #198754;
+    --success-dark: #095c36;
+    --success-light: #9dd3ba;
+    --warning: #ffc107;
+    --warning-dark: #705400;
+    --warning-light: #fdebb3;
+    --danger: #dc3545;
+    --danger-dark: #990c19;
+    --danger-light: #f0c1c6;
+    --new-gray: #CCCCCC;
+    --new-black: #212427;
+    --new-white: #E8E8E8;
+}
+
+.flex-colunar {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.border-primary {
+    border: 3px solid var(--primary-brand-color);
+}
+
+.border-secondary {
+    border: 3px solid var(--secondary-brand-color);
+}
+
+.padding-8 {
+    padding: 8px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-success-with-bg {
+    color: var(--success-dark);
+    background-color: var(--success-light);
+}
+
+.text-warning-with-bg {
+    color: var(--warning-dark);
+    background-color: var(--warning-light);
+}
+
+.text-danger-with-bg {
+    color: var(--danger-dark);
+    background-color: var(--danger-light);
+}
+
+.text-new-gray {
+    color: var(--new-gray);
+}
+/* .main-quiz {
     height: 150dvh;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .titulo_quiz {
@@ -450,7 +541,7 @@ footer {
 
 .titulo_quiz img {
     width: 800px;
-}
+} */
 
 /* Dashboard */
 
@@ -467,13 +558,9 @@ footer {
 
 .header_dash hr {
     width: 100%;
-    /* Define o tamanho da linha (100% vai encostar nas bordas) */
     border: none;
-    /* Remove a borda 3D padrão feia dos navegadores */
     border-top: 1px solid rgb(255, 255, 255);
-    /* Linha branca levemente transparente */
     margin-bottom: 40px;
-    /* Espaçamento de 20px em cima e embaixo */
 }
 
 .dash_profile {
