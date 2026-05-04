@@ -253,9 +253,11 @@ const listaDeQuestoes = [
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"
+        document.getElementById('pontuacaoEJogo').style.display= "none"
     }
 
     function iniciarQuiz() {
+        document.getElementById('pontuacaoEJogo').style.display= "flex"
         document.querySelector('.main-quiz').style.height = '150dvh'
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"

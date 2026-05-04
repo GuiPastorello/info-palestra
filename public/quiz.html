@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz | InfoPalestra</title>
-    <link rel="icon" href="../img/image5.svg">
+    <link rel="icon" href="assets/imgs/fav_icon.png">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/sessao.js"></script>
     <script src="./js/user.js"></script>
@@ -51,23 +51,31 @@
                 <img src="assets/imgs/image.png">
             </div>
             <div class="div_quiz">
-                <div id="pontuacaoEJogo">
-                    <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+                <button class="botao_quiz_of" id="btnIniciarQuiz" onclick="iniciarQuiz()"><b>Iniciar Quiz</b></button>
 
-                    <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-                        <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                            <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                            <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                <div id="pontuacaoEJogo">
+                    
+
+                    <div id="pontuacao" class="flex-colunar resultado_pergunta">
+                        <div id="pontuacaoDuranteJogo" class="flex">
+                            <span class="
+                            ">Quantidade de acertos: <span id="spanCertas"></span></span>
+                            <span class="
+                            ">Quantidade de erros: <span id="spanErradas"></span></span>
                         </div>
-                        <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                            <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                        <div id="pontuacaoFinalJogo" class="flex-colunar">
+                            <span id="pontuacaoFinal" class="
+                            ">Pontuação Final:
                                 <span id="spanPontuacaoFinal">***</span>
                             </span>
-                            <span id="msgFinal" class="width-fit-content">***</span>
+                            <span id="msgFinal" class="
+                            ">***</span>
                         </div>
                     </div>
 
-                    <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+                    <div id="jogo" class="perguntas
+                    flex-colunar
+                    ">
 
                         <div id="infoQuestao" class="padding-8">
                             <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
@@ -105,11 +113,11 @@
                             </span>
                         </div>
 
-                        <div id="botoes" class="flex-colunar padding-8">
-                            <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                            <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                        <div id="botoes" class="flex-colunar botoes_quiz">
+                            <button class="botao_quiz" onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                            <button class="botao_quiz" onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
                             <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
+                            <button class="botao_quiz" onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
                                 novamente</button>
                         </div>
 
