@@ -1,6 +1,20 @@
+function onloadDash(){
+    let usuario = document.querySelector(`#user_id`);
+    let login = document.querySelector(`#login_id`);
+
+    var nome = sessionStorage.NOME_USUARIO;
+    var email = sessionStorage.EMAIL_USUARIO;
+
+    var b_usuario = document.querySelector(`#b_usuario`);
+    var b_email = document.querySelector(`#b_email`);
+     b_usuario.innerHTML = nome;
+    b_email.innerHTML = email;
+}
+
 
 
 function header_validacao() {
+    console.log('Entrei no header de validacao')
     let usuario = document.querySelector(`#user_id`);
     let login = document.querySelector(`#login_id`);
 

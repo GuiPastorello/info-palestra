@@ -80,15 +80,14 @@ a {
     padding: 6px 25px;
     /* padding-inline: 25px;
     padding-block: 6px; */
+    position: relative;
+    transition: transform 0.3s;
 }
 
 .botao_login:hover {
     cursor: pointer;
-    color: white;
-    background-color: #0a4e03;
-    border: 1px white solid;
-    transform: scale(1.09);
     transition: 0.28s;
+    transform: translateY(-2px);
 }
 
 .botao_cadastro {
@@ -102,15 +101,15 @@ a {
     border-radius: 10px;
     padding-inline: 25px;
     padding-block: 6px;
+    position: relative;
+    transition: transform 0.2s;
+    
 }
 
 .botao_cadastro:hover {
     cursor: pointer;
-    color: white;
-    background-color: #470d0d;
-    border: 1px white solid;
     transform: scale(1.09);
-    transition: 0.28s;
+    transform: translateY(-3px);
 }
 
 .usuario {
@@ -472,6 +471,12 @@ footer {
     border: none;
     border-radius: 8px;
     font-size: 25px;
+    position: relative;
+    transition: transform 0.3s;
+}
+.botao_quiz_of:hover{
+ cursor: pointer;
+    transform: translateY(-3px);
 }
 
 .botao_quiz{
@@ -481,6 +486,19 @@ footer {
     background-color: #095c36;
     border: none;
     border-radius: 8px;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.botao_quiz:hover{
+    cursor: pointer;
+    transform: translateY(-3px);
+}
+.botao_quiz:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    pointer-events: none; /* Impede cliques e foco */
 }
 
 .botoes_quiz{
@@ -623,3 +641,4 @@ footer {
     cursor: pointer;
     transform: translateY(-3px);
 }
+
