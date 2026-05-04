@@ -11,8 +11,8 @@ USE infoPalestra;
 
 CREATE TABLE usuario (
 id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-nickname VARCHAR(20) NOT NULL,
-email VARCHAR(20) NOT NULL,
+nome VARCHAR(45) NOT NULL,
+email VARCHAR(100) NOT NULL,
 senha VARCHAR(15) NOT NULL
 );
 
