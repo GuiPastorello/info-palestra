@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dash | InfoPalestra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
     <link rel="icon" href="assets/imgs/fav_icon.png">
     <link rel="stylesheet" href=".\css\style.css">
     <script src="./js/sessao.js"></script>
     <script src="./js/user.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="onloadDash()">
+<body class="body_dash" onload="onloadDash()">
     <!-- PERFIL DA DASHBOARD -->
-    <div class="header_dash">
+    <header class="header_dash">
 
         <div class="dash_profile">
 
@@ -32,7 +35,7 @@
 
         <!-- ITEMS DA HEADER DA DASHBOARD -->
         <div class="items_header">
-            <div class="item_header"> 
+            <div class="item_header">
                 <a href="index.html"><img src="assets/imgs/home_icon.svg">Pagina Inicial</a>
             </div>
 
@@ -41,11 +44,87 @@
             </div>
 
             <div class="item_header">
-                
+
                 <a onclick="limparSessao()"><img src="assets/imgs/sair_icon.svg">Sair</a>
             </div>
         </div>
+
+    </header>
+
+
+    <!-- DASH -->
+    <div class="div_dash">
+
+        <div class="indicadores">
+            <div class="indicador melhor_tempo">
+                <img src="assets/imgs/melhor_tempo.svg">
+                <div>
+                    <h3>MELHOR TEMPO:</h3>
+                    <p> 03:03:32 min</p>
+                </div>
+            </div>
+            <div class="indicador melhor_tempo">
+                <img src="assets/imgs/melhor_tentativa.svg">
+                <div>
+                    <h3>MELHOR TENTATIVA:</h3>
+                    <p> 30/30 Questões</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="graficos">
+            <div class="grafico leader">
+                <div class="titulo_leader">
+                    <h2>LEADERBOARD</h2>
+                </div>
+                <div class="ranking_leader">
+                    <p class="podio">|🥇 -</p>
+                    <p class="podio">|🥈 -</p>
+                    <p class="podio">|🥉 -</p>
+                    <p>| 4 -</p>
+                    <p>| 5 -</p>
+                    <p>| 6 -</p>
+                    <p>| 7 -</p>
+                    <p>| 8 -</p>
+                    <p>| 9 -</p>
+                    <p>| 10 -</p>
+                </div>
+            </div>
+            <div class="grafico">
+                <div class="titulo_leader2">
+                    <h2>Questões com mais quantidades de acertos (geral) </h2>
+                </div>
+                <div class="canva">
+                <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 </body>
 
 </html>
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+            datasets: [{
+                label: 'Quantidade de acertos',
+                data: [32, 51, 3, 5, 2, 3, 30, 50, 5, 10],
+                borderWidth: 2,
+                backgroundColor: '#095c36'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
