@@ -6,38 +6,31 @@
 comandos para mysql server
 */
 
+
 CREATE DATABASE infoPalestra;
 USE infoPalestra;
 
 CREATE TABLE usuario (
 id_usuario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45) NOT NULL,
-email VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL UNIQUE,
 senha VARCHAR(15) NOT NULL
-);
-
-CREATE TABLE questao (
-id INT PRIMARY KEY AUTO_INCREMENT,
-descricao VARCHAR(255)
 );
 
 CREATE TABLE tentativa (
 id_tentativa INT PRIMARY KEY AUTO_INCREMENT,
 fk_usuario INT NOT NULL,
-hora_inicio TIME DEFAULT (CURRENT_TIME),
-hora_fim TIME,
+acertos INT,
+hora_inicio DATETIME DEFAULT (current_timestamp()) NOT NULL,
+hora_fim DATETIME,
 CONSTRAINT cfk_usuario FOREIGN KEY (fk_usuario) REFERENCES usuario(id_usuario) 
 ) auto_increment = 1000;
 
-CREATE TABLE respostaQuestao(
-id_resposta INT,
-fk_questao INT ,
-fk_tentativa INT,
-acertou TINYINT,
-PRIMARY KEY (id_resposta, fk_questao),
-CONSTRAINT cfk_questao FOREIGN KEY (fk_questao) REFERENCES questao(id),
-CONSTRAINT cfk_tentativa FOREIGN KEY (fk_tentativa) REFERENCES tentativa(id_tentativa)
-);
+
+DESC usuario;
+
+INSERT INTO usuario (nome, email, senha) VALUES
+('Guilherme', 'gui@email.com', 'Senha123');
 
 SELECT * FROM usuario;
-
+SELECT * FROM tentativa;
