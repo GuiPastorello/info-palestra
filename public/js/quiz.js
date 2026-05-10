@@ -271,6 +271,9 @@ function iniciarQuiz() {
     btnProx.disabled = true
     // btnConcluir.disabled = true
     btnTentarNovamente.disabled = true
+
+    // Registra o início da tentativa
+    cadastrar()
 }
 
 function preencherHTMLcomQuestaoAtual(index) {
@@ -395,7 +398,45 @@ function desmarcarRadioButtons() {
     }
 }
 function cadastrar() {
-    console.log('cheguei aqui!')
+    console.log('Registrando INÍCIO da tentativa...')
+
+    var fk_usuario = sessionStorage.ID_USUARIO;
+
+    // Verificando se há usuario logado
+    if (!fk_usuario || fk_usuario == "") {
+        console.log("Erro: Usuário não está logado!");
+        return false;
+    }
+
+    // Enviando para registrar o INÍCIO da tentativa
+    fetch("/quiz/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            fk_usuarioServer: fk_usuario,
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log("Tentativa iniciada com sucesso!");
+            } else {
+                throw "Houve um erro ao tentar iniciar a tentativa!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO ao iniciar: ${resposta}`);
+        });
+
+    return false;
+}
+
+// Função para ATUALIZAR a tentativa com os acertos ao terminar o quiz
+function atualizarTentativaQuiz() {
+    console.log('Atualizando tentativa com ACERTOS...')
 
     var fk_usuario = sessionStorage.ID_USUARIO;
 
@@ -406,8 +447,8 @@ function cadastrar() {
         return false;
     }
 
-    // Enviando o valor da nova input
-    fetch("/quiz/cadastrar", {
+    // Enviando o UPDATE com acertos
+    fetch("/quiz/atualizar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -418,20 +459,19 @@ function cadastrar() {
         }),
     })
         .then(function (resposta) {
-            console.log("resposta: ", resposta);
+            console.log("resposta atualizar: ", resposta);
 
             if (resposta.ok) {
-                console.log("Tentativa realizado com sucesso!");
-                alert("Tentativa realizada com sucesso!");
+                console.log("Tentativa atualizada com sucesso!");
+                // alert("Tentativa concluída e salva com sucesso!");
 
-                
             } else {
-                throw "Houve um erro ao tentar realizar a tentativa!";
+                throw "Houve um erro ao tentar atualizar a tentativa!";
             }
         })
         .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            alert("Erro ao enviar a tentativa: " + resposta);
+            console.log(`#ERRO ao atualizar: ${resposta}`);
+            alert("Erro ao salvar a tentativa: " + resposta);
         });
 
     return false;
@@ -470,5 +510,6 @@ function finalizarJogo() {
     // btnConcluir.disabled = true
     btnTentarNovamente.disabled = false
 
-    cadastrar();
+    // Atualiza a tentativa com os acertos ao terminar
+    atualizarTentativaQuiz();
 }

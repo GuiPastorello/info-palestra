@@ -7,4 +7,8 @@ router.post("/cadastrar", function (req, res) {
     quizController.cadastrar(req, res);
 })
 
+router.post("/atualizar", function (req, res) {
+    quizController.atualizar(req, res);
+})
+
 module.exports = router;
