@@ -57,8 +57,26 @@ function desempenhoGeral() {
     return database.executar(instrucaoSql);
 }
 
+function listarLeaderboard() {
+    console.log("ACESSEI O QUIZ MODEL - LISTAR LEADERBOARD \n\nfunction listarLeaderboard():");
+
+    var instrucaoSql = `
+        SELECT u.nome,
+            t.acertos,
+            timestampdiff(SECOND, hora_inicio, hora_fim) as tempoGasto
+            FROM usuario u
+            JOIN tentativa t
+            ON t.fk_usuario = u.id_usuario
+            ORDER BY acertos AND tempoGasto DESC LIMIT 10;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     cadastrar,
     atualizar,
-    desempenhoGeral
+    desempenhoGeral,
+    listarLeaderboard
 };

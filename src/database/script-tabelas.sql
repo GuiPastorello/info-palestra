@@ -47,7 +47,7 @@ INSERT INTO usuario (nome, email, senha) VALUES
 ('Beatriz', 'beatriz@email.com', 'Bia12345'),
 ('Thiago', 'thiago@email.com', 'Thiago999');
 
--- Tentativas para os usuários
+
 INSERT INTO tentativa (fk_usuario, acertos, hora_inicio, hora_fim) VALUES
 (1, 8, '2026-05-15 10:00:00', '2026-05-15 10:20:00'),
 (2, 5, '2026-05-15 11:00:00', '2026-05-15 11:18:00'),
@@ -82,3 +82,18 @@ SELECT
     WHERE t.acertos >= 10
 ) AS '10_ou_mais';
 
+
+-- LEADERBOARD
+SELECT u.nome,
+ t.acertos,
+ timestampdiff(SECOND, hora_inicio, hora_fim) as tempoGasto
+FROM usuario u
+ JOIN tentativa t
+ ON t.fk_usuario = u.id_usuario
+ORDER BY acertos AND tempoGasto DESC LIMIT 10;
+
+-- MELHOR TEMPO
+SELECT 
+timestampdiff(SECOND, hora_inicio, hora_fim) as tempoGasto
+FROM tentativa
+WHERE fk_usuario = 1 ORDER BY tempoGasto ASC LIMIT 1;

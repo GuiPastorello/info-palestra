@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body class="body_dash" onload="onloadDash(), obterDadosGrafico()">
+<body class="body_dash" onload="onloadDash(), obterDadosGrafico(), ObterLeaderboard()">
     <!-- PERFIL DA DASHBOARD -->
     <header class="header_dash">
 
@@ -77,7 +77,7 @@
                 <div class="titulo_leader">
                     <h2>LEADERBOARD</h2>
                 </div>
-                <div class="ranking_leader">
+                <div class="ranking_leader" id="leaderboard_id">
                     <p class="podio">|🥇 -</p>
                     <p class="podio">|🥈 -</p>
                     <p class="podio">|🥉 -</p>
@@ -106,13 +106,46 @@
 
 </html>
 <script>
+    function ObterLeaderboard() {
+
+        fetch(`/quiz/leaderboard`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // resposta.reverse();
+                    console.log(`Cheguei ${resposta}`)
+                    plotarLeaderboard(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    function plotarLeaderboard(resposta){
+        const leaderboard = resposta;
+        
+        let html=`
+                    <p class="podio">|🥇 - ${leaderboard[0].nome} - Acertou ${leaderboard[0].acertos} questões - ${leaderboard[0].tempoGasto} segundos</p>
+                    <p class="podio">|🥈 - ${leaderboard[1].nome} - Acertou ${leaderboard[1].acertos} questões - ${leaderboard[1].tempoGasto} segundos</p>
+                    <p class="podio">|🥉 - ${leaderboard[2].nome} - Acertou ${leaderboard[2].acertos} questões - ${leaderboard[2].tempoGasto} segundos</p>
+                    <p>| 4 - ${leaderboard[3].nome} - Acertou ${leaderboard[3].acertos} questões - ${leaderboard[3].tempoGasto} segundos</p>
+                    <p>| 5 - ${leaderboard[4].nome} - Acertou ${leaderboard[4].acertos} questões - ${leaderboard[4].tempoGasto} segundos</p>
+                    <p>| 6 - ${leaderboard[5].nome} - Acertou ${leaderboard[5].acertos} questões - ${leaderboard[5].tempoGasto} segundos</p>
+                    <p>| 7 - ${leaderboard[6].nome} - Acertou ${leaderboard[6].acertos} questões - ${leaderboard[6].tempoGasto} segundos</p>
+                    <p>| 8 - ${leaderboard[7].nome} - Acertou ${leaderboard[7].acertos} questões - ${leaderboard[7].tempoGasto} segundos</p>
+                    <p>| 9 - ${leaderboard[8].nome} - Acertou ${leaderboard[8].acertos} questões - ${leaderboard[8].tempoGasto} segundos</p>
+                    <p>| 10 -${leaderboard[9].nome} - Acertou ${leaderboard[9].acertos} questões - ${leaderboard[9].tempoGasto} segundos</p>
+                </div>
+        `
+        leaderboard_id.innerHTML=html 
+
+    }
+
     function obterDadosGrafico() {
-
-        // alterarTitulo(idAquario)
-
-        // if (proximaAtualizacao != undefined) {
-        //     clearTimeout(proximaAtualizacao);
-        // }
 
         fetch(`/quiz/desempenho-geral`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
