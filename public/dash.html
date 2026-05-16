@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body class="body_dash" onload="onloadDash()">
+<body class="body_dash" onload="obterDadosGrafico()">
     <!-- PERFIL DA DASHBOARD -->
     <header class="header_dash">
 
@@ -92,10 +92,10 @@
             </div>
             <div class="grafico">
                 <div class="titulo_leader2">
-                    <h2>Questões com mais quantidades de acertos (geral) </h2>
+                    <h2>Desempenho Geral dos Usuários</h2>
                 </div>
                 <div class="canva">
-                <canvas id="myChart"></canvas>
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
         </div>
@@ -106,25 +106,57 @@
 
 </html>
 <script>
-    const ctx = document.getElementById('myChart');
+    function obterDadosGrafico() {
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-            datasets: [{
-                label: 'Quantidade de acertos',
-                data: [32, 51, 3, 5, 2, 3, 30, 50, 5, 10],
-                borderWidth: 2,
-                backgroundColor: '#095c36'
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        // alterarTitulo(idAquario)
+
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+
+        fetch(`/quiz/desempenho-geral`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // resposta.reverse();
+                    console.log(`Cheguei ${resposta}`)
+                    plotarGrafico(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta) {
+        const zeroAquatro = resposta[0].zeroAquatro;
+        const cincoAnove = resposta[0].cincoAnove;
+        const dezAquinze = resposta[0].dezAquinze;
+
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['0 a 4 Acertos', '5 a 9 Acertos', '10 a 15 Acertos'],
+                datasets: [{
+                    label: 'Quantidade de acertos',
+                    data: [zeroAquatro, cincoAnove, dezAquinze],
+                    borderWidth: 2,
+                    backgroundColor: '#095c36'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 </script>

@@ -11,4 +11,8 @@ router.post("/atualizar", function (req, res) {
     quizController.atualizar(req, res);
 })
 
+router.get("/desempenho-geral", function(req, res){
+    quizController.desempenhoGeral(req,res);
+})
+
 module.exports = router;
