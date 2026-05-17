@@ -143,102 +143,224 @@ const listaDeQuestoes = [
     //     alternativaD: "Mágico",
     //     alternativaCorreta: "alternativaB"
     // },
+    // {
+    //     pergunta: "Em qual ano o Palmeiras conquistou a Glória Eterna da sua primeira Copa Libertadores da América?",
+    //     alternativaA: "1951",
+    //     alternativaB: "1965",
+    //     alternativaC: "1999",
+    //     alternativaD: "2016",
+    //     alternativaCorreta: "alternativaC"
+    // },
+    // {
+    //     pergunta: "Contra qual equipe o Verdão disputou a final dramática da nossa primeira Libertadores?",
+    //     alternativaA: "Boca Juniors",
+    //     alternativaB: "River Plate",
+    //     alternativaC: "Peñarol",
+    //     alternativaD: "Deportivo Cali",
+    //     alternativaCorreta: "alternativaD"
+    // },
+    // {
+    //     pergunta: "Em qual estádio aconteceu essa final épica da Libertadores de 1999?",
+    //     alternativaA: "Antigo Palestra Italia",
+    //     alternativaB: "Maracanã",
+    //     alternativaC: "Allianz Parque",
+    //     alternativaD: "Pacaembu",
+    //     alternativaCorreta: "alternativaA"
+    // },
+    // {
+    //     pergunta: "Além de Marcos e Alex, qual outro craque foi fundamental nessa conquista de 1999?",
+    //     alternativaA: "Ademir da Guia",
+    //     alternativaB: "Paulo Nunes",
+    //     alternativaC: "Abel Ferreira",
+    //     alternativaD: "Dudu",
+    //     alternativaCorreta: "alternativaB"
+    // },
+    // {
+    //     pergunta: "Qual foi o outro meia craque de bola que, junto com Marcos e Paulo Nunes, marcou a nossa conquista da América?",
+    //     alternativaA: "Pelé",
+    //     alternativaB: "Zico",
+    //     alternativaC: "Alex",
+    //     alternativaD: "Ronaldo",
+    //     alternativaCorreta: "alternativaC"
+    // },
+    // {
+    //     pergunta: "A inauguração de qual estádio marcou a fase de reconstrução e a 'volta do gigante'?",
+    //     alternativaA: "Arena Corinthians",
+    //     alternativaB: "Morumbi",
+    //     alternativaC: "Vila Belmiro",
+    //     alternativaD: "Allianz Parque",
+    //     alternativaCorreta: "alternativaD"
+    // },
+    // {
+    //     pergunta: "Qual título o Palmeiras conquistou em 2015 para mostrar que tinha voltado ao topo?",
+    //     alternativaA: "Copa do Brasil",
+    //     alternativaB: "Campeonato Paulista",
+    //     alternativaC: "Copa Sul-Americana",
+    //     alternativaD: "Recopa",
+    //     alternativaCorreta: "alternativaA"
+    // },
+    // {
+    //     pergunta: "No ano seguinte, em 2016, qual grande título nacional o nosso time faturou?",
+    //     alternativaA: "Hepta campeonato brasileiro",
+    //     alternativaB: "Enea campeonato brasileiro",
+    //     alternativaC: "Deca campeonato brasileiro",
+    //     alternativaD: "Octa campeonato brasileiro",
+    //     alternativaCorreta: "alternativaB"
+    // },
+    // {
+    //     pergunta: "O que esse título do Brasileirão de 2016 reafirmou sobre o Palmeiras no cenário nacional?",
+    //     alternativaA: "A posição de clube mais rico",
+    //     alternativaB: "O recorde de vitórias seguidas",
+    //     alternativaC: "A nossa posição de maior campeão do Brasil",
+    //     alternativaD: "A invencibilidade no Allianz Parque",
+    //     alternativaCorreta: "alternativaC"
+    // },
+    // {
+    //     pergunta: "Como a gente conhece a atual era histórica do clube que começou a partir de 2020?",
+    //     alternativaA: "A Nova Era",
+    //     alternativaB: "O Retorno Glorioso",
+    //     alternativaC: "O Império Verde",
+    //     alternativaD: "A Terceira Academia",
+    //     alternativaCorreta: "alternativaD"
+    // },
+    // {
+    //     pergunta: "Qual treinador chegou para iniciar a nossa vitoriosa Terceira Academia?",
+    //     alternativaA: "Abel Ferreira",
+    //     alternativaB: "Luiz Felipe Scolari",
+    //     alternativaC: "Vanderlei Luxemburgo",
+    //     alternativaD: "Cuca",
+    //     alternativaCorreta: "alternativaA"
+    // },
+    // {
+    //     pergunta: "Em quais ediçoes da libertadores o Verdão calou os críticos com o histórico Bicampeonato da Libertadores?",
+    //     alternativaA: "1999 e 2000",
+    //     alternativaB: "2020 e 2021",
+    //     alternativaC: "2015 e 2016",
+    //     alternativaD: "2021 e 2022",
+    //     alternativaCorreta: "alternativaB"
+    // }
+    
     {
-        pergunta: "Em qual ano o Palmeiras conquistou a Glória Eterna da sua primeira Copa Libertadores da América?",
-        alternativaA: "1951",
-        alternativaB: "1965",
-        alternativaC: "1999",
-        alternativaD: "2016",
-        alternativaCorreta: "alternativaC"
+        "pergunta": "Em que dia e mês comemoramos o aniversário de fundação do Palmeiras?",
+        "alternativaA": "26 de agosto",
+        "alternativaB": "12 de junho",
+        "alternativaC": "15 de novembro",
+        "alternativaD": "1 de setembro",
+        "alternativaCorreta": "alternativaA"
     },
     {
-        pergunta: "Contra qual equipe o Verdão disputou a final dramática da nossa primeira Libertadores?",
-        alternativaA: "Boca Juniors",
-        alternativaB: "River Plate",
-        alternativaC: "Peñarol",
-        alternativaD: "Deportivo Cali",
-        alternativaCorreta: "alternativaD"
+        "pergunta": "Em qual ano nasceu o nosso Verdão?",
+        "alternativaA": "1910",
+        "alternativaB": "1914",
+        "alternativaC": "1920",
+        "alternativaD": "1930",
+        "alternativaCorreta": "alternativaB"
     },
     {
-        pergunta: "Em qual estádio aconteceu essa final épica da Libertadores de 1999?",
-        alternativaA: "Antigo Palestra Italia",
-        alternativaB: "Maracanã",
-        alternativaC: "Allianz Parque",
-        alternativaD: "Pacaembu",
-        alternativaCorreta: "alternativaA"
+        "pergunta": "Qual grupo teve a iniciativa de fundar o clube lá no começo da nossa história?",
+        "alternativaA": "Comerciantes portugueses",
+        "alternativaB": "Estudantes ingleses",
+        "alternativaC": "Imigrantes italianos",
+        "alternativaD": "Operários espanhóis",
+        "alternativaCorreta": "alternativaC"
     },
     {
-        pergunta: "Além de Marcos e Alex, qual outro craque foi fundamental nessa conquista de 1999?",
-        alternativaA: "Ademir da Guia",
-        alternativaB: "Paulo Nunes",
-        alternativaC: "Abel Ferreira",
-        alternativaD: "Dudu",
-        alternativaCorreta: "alternativaB"
+        "pergunta": "Antes de se chamar Sociedade Esportiva Palmeiras, qual foi o primeiro nome do nosso time?",
+        "alternativaA": "Palestra Italia",
+        "alternativaB": "Società Sportiva",
+        "alternativaC": "Clube Atlético",
+        "alternativaD": "Esporte Clube São Paulo",
+        "alternativaCorreta": "alternativaA"
     },
     {
-        pergunta: "Qual foi o outro meia craque de bola que, junto com Marcos e Paulo Nunes, marcou a nossa conquista da América?",
-        alternativaA: "Pelé",
-        alternativaB: "Zico",
-        alternativaC: "Alex",
-        alternativaD: "Ronaldo",
-        alternativaCorreta: "alternativaC"
+        "pergunta": "Em qual estádio o Palmeiras superou a Juventus da Itália na inesquecível decisão de 1951?",
+        "alternativaA": "Pacaembu",
+        "alternativaB": "Morumbi",
+        "alternativaC": "Maracanã",
+        "alternativaD": "Palestra Italia",
+        "alternativaCorreta": "alternativaC"
     },
     {
-        pergunta: "A inauguração de qual estádio marcou a fase de reconstrução e a 'volta do gigante'?",
-        alternativaA: "Arena Corinthians",
-        alternativaB: "Morumbi",
-        alternativaC: "Vila Belmiro",
-        alternativaD: "Allianz Parque",
-        alternativaCorreta: "alternativaD"
+        "pergunta": "Qual era o nome da taça daquele nosso torneio internacional de 1951?",
+        "alternativaA": "Copa Intercontinental",
+        "alternativaB": "Copa Rio",
+        "alternativaC": "Mundialito",
+        "alternativaD": "Copa Toyota",
+        "alternativaCorreta": "alternativaB"
     },
     {
-        pergunta: "Qual título o Palmeiras conquistou em 2015 para mostrar que tinha voltado ao topo?",
-        alternativaA: "Copa do Brasil",
-        alternativaB: "Campeonato Paulista",
-        alternativaC: "Copa Sul-Americana",
-        alternativaD: "Recopa",
-        alternativaCorreta: "alternativaA"
+        "pergunta": "Como a FIFA reconheceu oficialmente a Copa Rio de 1951 para a nossa alegria?",
+        "alternativaA": "Como um torneio amistoso de verão",
+        "alternativaB": "Como a precursora da Copa Libertadores",
+        "alternativaC": "Como uma taça estadual simbólica",
+        "alternativaD": "Como a primeira edição do Mundial de Clubes",
+        "alternativaCorreta": "alternativaD"
     },
     {
-        pergunta: "No ano seguinte, em 2016, qual grande título nacional o nosso time faturou?",
-        alternativaA: "Hepta campeonato brasileiro",
-        alternativaB: "Enea campeonato brasileiro",
-        alternativaC: "Deca campeonato brasileiro",
-        alternativaD: "Octa campeonato brasileiro",
-        alternativaCorreta: "alternativaB"
+        "pergunta": "Sob o comando de qual craque o Palmeiras formou a nossa famosa 'Primeira Academia'?",
+        "alternativaA": "Ademir da Guia",
+        "alternativaB": "Marcos",
+        "alternativaC": "Alex",
+        "alternativaD": "Paulo Nunes",
+        "alternativaCorreta": "alternativaA"
     },
     {
-        pergunta: "O que esse título do Brasileirão de 2016 reafirmou sobre o Palmeiras no cenário nacional?",
-        alternativaA: "A posição de clube mais rico",
-        alternativaB: "O recorde de vitórias seguidas",
-        alternativaC: "A nossa posição de maior campeão do Brasil",
-        alternativaD: "A invencibilidade no Allianz Parque",
-        alternativaCorreta: "alternativaC"
+        "pergunta": "Em qual ano o nosso elenco jogou tanto que foi chamado para representar a Seleção Brasileira?",
+        "alternativaA": "1951",
+        "alternativaB": "1965",
+        "alternativaC": "1999",
+        "alternativaD": "2015",
+        "alternativaCorreta": "alternativaB"
     },
     {
-        pergunta: "Como a gente conhece a atual era histórica do clube que começou a partir de 2020?",
-        alternativaA: "A Nova Era",
-        alternativaB: "O Retorno Glorioso",
-        alternativaC: "O Império Verde",
-        alternativaD: "A Terceira Academia",
-        alternativaCorreta: "alternativaD"
+        "pergunta": "Qual foi o apelido que o goleiro Marcos ganhou da torcida após a liderança na Libertadores de 1999?",
+        "alternativaA": "Muralha",
+        "alternativaB": "Santo",
+        "alternativaC": "Paredão",
+        "alternativaD": "Mágico",
+        "alternativaCorreta": "alternativaB"
     },
     {
-        pergunta: "Qual treinador chegou para iniciar a nossa vitoriosa Terceira Academia?",
-        alternativaA: "Abel Ferreira",
-        alternativaB: "Luiz Felipe Scolari",
-        alternativaC: "Vanderlei Luxemburgo",
-        alternativaD: "Cuca",
-        alternativaCorreta: "alternativaA"
+        "pergunta": "Contra qual equipe o Verdão disputou a final dramática da nossa primeira Libertadores?",
+        "alternativaA": "Boca Juniors",
+        "alternativaB": "River Plate",
+        "alternativaC": "Peñarol",
+        "alternativaD": "Deportivo Cali",
+        "alternativaCorreta": "alternativaD"
     },
     {
-        pergunta: "Em quais ediçoes da libertadores o Verdão calou os críticos com o histórico Bicampeonato da Libertadores?",
-        alternativaA: "1999 e 2000",
-        alternativaB: "2020 e 2021",
-        alternativaC: "2015 e 2016",
-        alternativaD: "2021 e 2022",
-        alternativaCorreta: "alternativaB"
+        "pergunta": "Aura de qual estádio marcou a fase de reconstrução e a 'volta do gigante'?",
+        "alternativaA": "Arena Corinthians",
+        "alternativaB": "Morumbi",
+        "alternativaC": "Vila Belmiro",
+        "alternativaD": "Allianz Parque",
+        "alternativaCorreta": "alternativaD"
+    },
+    {
+        "pergunta": "Qual título o Palmeiras conquistou em 2015 para mostrar que tinha voltado ao topo?",
+        "alternativaA": "Copa do Brasil",
+        "alternativaB": "Campeonato Paulista",
+        "alternativaC": "Copa Sul-Americana",
+        "alternativaD": "Recopa",
+        "alternativaCorreta": "alternativaA"
+    },
+    {
+        "pergunta": "No ano seguinte, em 2016, qual grande título nacional o nosso time faturou?",
+        "alternativaA": "Hepta campeonato brasileiro",
+        "alternativaB": "Enea campeonato brasileiro",
+        "alternativaC": "Deca campeonato brasileiro",
+        "alternativaD": "Octa campeonato brasileiro",
+        "alternativaCorreta": "alternativaB"
+    },
+    {
+        "pergunta": "Qual treinador chegou para iniciar a nossa vitoriosa Terceira Academia?",
+        "alternativaA": "Abel Ferreira",
+        "alternativaB": "Luiz Felipe Scolari",
+        "alternativaC": "Vanderlei Luxemburgo",
+        "alternativaD": "Cuca",
+        "alternativaCorreta": "alternativaA"
     }
+
 ];
 
 // variáveis globais    

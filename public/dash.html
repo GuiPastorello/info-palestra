@@ -67,7 +67,7 @@
                 <img src="assets/imgs/melhor_tentativa.svg">
                 <div>
                     <h3>MELHOR TENTATIVA:</h3>
-                    <p> <span id="melhor_tentativa_id">?</span>/30 Questões</p>
+                    <p> <span id="melhor_tentativa_id">?</span>/15 Questões</p>
                 </div>
             </div>
         </div>
@@ -264,7 +264,7 @@
                 classePodio = ' class="podio"';
             }
 
-            // Acumula o HTML de cada linha
+     
             leaderboardHTML += `<p${classePodio}>${prefixo} - ${jogador.nome} - Acertou ${jogador.acertos} questões - ${tempo}</p>\n`;
         }
         leaderboard_id.innerHTML = leaderboardHTML
