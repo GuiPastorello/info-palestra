@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body class="body_dash" onload="onloadDash(), obterDadosGrafico(), ObterLeaderboard(), buscarMelhorTentativa()">
+<body class="body_dash" onload="onloadDash(), obterDadosGrafico(), ObterLeaderboard(), buscarMelhorTentativa(), buscarMelhorTempo()">
     <!-- PERFIL DA DASHBOARD -->
     <header class="header_dash">
 
@@ -60,14 +60,14 @@
                 <img src="assets/imgs/melhor_tempo.svg">
                 <div>
                     <h3>MELHOR TEMPO:</h3>
-                    <p> 03:03:32 min</p>
+                    <p id="melhor_tempo_id"> ?</p>
                 </div>
             </div>
             <div class="indicador melhor_tempo">
                 <img src="assets/imgs/melhor_tentativa.svg">
                 <div>
                     <h3>MELHOR TENTATIVA:</h3>
-                    <p> <span id="melhor_tentativa_id">?</span>/30 Questões</p>
+                    <p> <span id="melhor_tentativa_id">?</span>/15 Questões</p>
                 </div>
             </div>
         </div>
@@ -106,8 +106,9 @@
 
 </html>
 <script>
+
     function buscarMelhorTentativa() {
-        console.log('Buscandom melhor tentativa com ACERTOS...')
+        console.log('Buscando melhor tentativa com ACERTOS...')
 
         var fk_usuario = sessionStorage.ID_USUARIO;
 
@@ -115,6 +116,9 @@
         if (!fk_usuario || fk_usuario == "") {
             console.log("Erro: Usuário não está logado!");
             alert("Erro: Usuário não está logado!");
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "100");
             return false;
         }
 
@@ -130,13 +134,13 @@
 
                 if (resposta.ok) {
                     resposta.json().then(function (resposta) {
-                    console.log("busca por melhor tentativa com exito");
-                    // alert("Tentativa concluída e salva com sucesso!");
-                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log(resposta)
-                    plotarMelhorTehtativa(resposta)
-                });
-               
+                        console.log("busca por melhor tempo com exito");
+                        // alert("Tentativa concluída e salva com sucesso!");
+                        // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        console.log(resposta)
+                        plotarMelhorTentativa(resposta)
+                    });
+
                 } else {
                     throw "Houve um erro ao tentar buscar a tentativa!";
                 }
@@ -146,12 +150,68 @@
                 alert("Erro ao buscar tentativa: " + resposta);
             });
 
-            
+
     }
-    function plotarMelhorTehtativa(resposta){
+
+    function plotarMelhorTempo(resposta) {
+        let melhorTempo = resposta;
+
+        let melhorTempoFrase = formatarSegundos(melhorTempo[0].tempoGasto)
+        console.log(melhorTempoFrase)
+        melhor_tempo_id.innerHTML = melhorTempoFrase
+
+    }
+
+    function plotarMelhorTentativa(resposta) {
         let melhorTentativa = resposta[0].acertos;
 
         melhor_tentativa_id.innerHTML = melhorTentativa;
+    }
+
+    function buscarMelhorTempo() {
+        console.log('Buscando melhor tempo')
+
+        var fk_usuario = sessionStorage.ID_USUARIO;
+
+        // Verificando se há usuario logado
+        if (!fk_usuario || fk_usuario == "") {
+            console.log("Erro: Usuário não está logado!");
+            alert("Erro: Usuário não está logado!");
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "100");
+            return false;
+        }
+
+        // Enviando o req necessaria com acertos
+        fetch(`/quiz/melhor-tempo/${fk_usuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (resposta) {
+                // console.log("resposta atualizar: ", resposta);
+
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("busca por melhor tentativa com exito");
+                        // alert("Tentativa concluída e salva com sucesso!");
+                        // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        console.log(resposta)
+                        plotarMelhorTempo(resposta)
+                    });
+
+                } else {
+                    throw "Houve um erro ao tentar buscar a tentativa!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO ao atualizar: ${resposta}`);
+                alert("Erro ao buscar tentativa: " + resposta);
+            });
+
+
     }
 
 
@@ -174,20 +234,22 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
+
+
     function plotarLeaderboard(resposta) {
         const leaderboard = resposta;
 
         let html = `
-                    <p class="podio">|🥇 - ${leaderboard[0].nome} - Acertou ${leaderboard[0].acertos} questões - ${leaderboard[0].tempoGasto} segundos</p>
-                    <p class="podio">|🥈 - ${leaderboard[1].nome} - Acertou ${leaderboard[1].acertos} questões - ${leaderboard[1].tempoGasto} segundos</p>
-                    <p class="podio">|🥉 - ${leaderboard[2].nome} - Acertou ${leaderboard[2].acertos} questões - ${leaderboard[2].tempoGasto} segundos</p>
-                    <p>| 4 - ${leaderboard[3].nome} - Acertou ${leaderboard[3].acertos} questões - ${leaderboard[3].tempoGasto} segundos</p>
-                    <p>| 5 - ${leaderboard[4].nome} - Acertou ${leaderboard[4].acertos} questões - ${leaderboard[4].tempoGasto} segundos</p>
-                    <p>| 6 - ${leaderboard[5].nome} - Acertou ${leaderboard[5].acertos} questões - ${leaderboard[5].tempoGasto} segundos</p>
-                    <p>| 7 - ${leaderboard[6].nome} - Acertou ${leaderboard[6].acertos} questões - ${leaderboard[6].tempoGasto} segundos</p>
-                    <p>| 8 - ${leaderboard[7].nome} - Acertou ${leaderboard[7].acertos} questões - ${leaderboard[7].tempoGasto} segundos</p>
-                    <p>| 9 - ${leaderboard[8].nome} - Acertou ${leaderboard[8].acertos} questões - ${leaderboard[8].tempoGasto} segundos</p>
-                    <p>| 10 -${leaderboard[9].nome} - Acertou ${leaderboard[9].acertos} questões - ${leaderboard[9].tempoGasto} segundos</p>
+                    <p class="podio">|🥇 - ${leaderboard[0].nome} - Acertou ${leaderboard[0].acertos} questões - ${formatarSegundos(leaderboard[0].tempoGasto)} </p>
+                    <p class="podio">|🥈 - ${leaderboard[1].nome} - Acertou ${leaderboard[1].acertos} questões - ${formatarSegundos(leaderboard[1].tempoGasto)} </p>
+                    <p class="podio">|🥉 - ${leaderboard[2].nome} - Acertou ${leaderboard[2].acertos} questões - ${formatarSegundos(leaderboard[2].tempoGasto)} </p>
+                    <p>| 4 - ${leaderboard[3].nome} - Acertou ${leaderboard[3].acertos} questões - ${formatarSegundos(leaderboard[3].tempoGasto)} </p>
+                    <p>| 5 - ${leaderboard[4].nome} - Acertou ${leaderboard[4].acertos} questões - ${formatarSegundos(leaderboard[4].tempoGasto)} </p>
+                    <p>| 6 - ${leaderboard[5].nome} - Acertou ${leaderboard[5].acertos} questões - ${formatarSegundos(leaderboard[5].tempoGasto)} </p>
+                    <p>| 7 - ${leaderboard[6].nome} - Acertou ${leaderboard[6].acertos} questões - ${formatarSegundos(leaderboard[6].tempoGasto)} </p>
+                    <p>| 8 - ${leaderboard[7].nome} - Acertou ${leaderboard[7].acertos} questões - ${formatarSegundos(leaderboard[7].tempoGasto)} </p>
+                    <p>| 9 - ${leaderboard[8].nome} - Acertou ${leaderboard[8].acertos} questões - ${formatarSegundos(leaderboard[8].tempoGasto)} </p>
+                    <p>| 10 -${leaderboard[9].nome} - Acertou ${leaderboard[9].acertos} questões - ${formatarSegundos(leaderboard[9].tempoGasto)} </p>
                 </div>
         `
         leaderboard_id.innerHTML = html
@@ -240,5 +302,13 @@
                 }
             }
         });
+    }
+
+    function formatarSegundos(segundosTotais) {
+        const minutos = Math.floor(segundosTotais / 60);
+        const segundos = segundosTotais % 60;
+        const segundosFormatados = String(segundos).padStart(2, '0');
+
+        return `${minutos}:${segundosFormatados} min`;
     }
 </script>

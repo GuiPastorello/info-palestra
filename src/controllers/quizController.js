@@ -93,14 +93,31 @@ function listarMelhorTentativa(req, res) {
     let fk_usuario = req.params.fk_usuario;
 
     quizModel.listarMelhorTentativa(fk_usuario).then((resultado) => {
-        if (resultado.length > 0) { 
+        if (resultado.length > 0) {
+ 
             res.status(200).json(resultado);
         } else {
             res.status(204).json([]);
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar a leaderboard: ", erro.sqlMessage);
+        console.log("Houve um erro ao buscar a melhor tentativa: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+function listarMelhorTempo(req, res) {
+    let fk_usuario = req.params.fk_usuario;
+
+    quizModel.listarMelhorTempo(fk_usuario).then((resultado) => {
+        if (resultado.length > 0) {
+ 
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).json([]);
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar o melhor tempo ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -110,5 +127,6 @@ module.exports = {
     atualizar,
     desempenhoGeral,
     listarLeaderboard,
-    listarMelhorTentativa
+    listarMelhorTentativa,
+    listarMelhorTempo
 };

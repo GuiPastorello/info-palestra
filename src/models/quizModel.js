@@ -85,6 +85,21 @@ function listarMelhorTentativa(fk_usuario) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function listarMelhorTempo(fk_usuario) {
+    console.log("ACESSEI O QUIZ MODEL - LISTAR MELHOR TEMPO \n\nfunction listarMelhorTempo():" , fk_usuario);
+
+    var instrucaoSql = `
+       SELECT 
+            timestampdiff(SECOND, hora_inicio, hora_fim) as tempoGasto
+            FROM tentativa
+            WHERE fk_usuario = 1 ORDER BY tempoGasto ASC
+            LIMIT 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 
 
 module.exports = {
@@ -92,5 +107,6 @@ module.exports = {
     atualizar,
     desempenhoGeral,
     listarLeaderboard,
-    listarMelhorTentativa
+    listarMelhorTentativa,
+    listarMelhorTempo
 };
