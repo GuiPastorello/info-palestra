@@ -67,7 +67,7 @@
                 <img src="assets/imgs/melhor_tentativa.svg">
                 <div>
                     <h3>MELHOR TENTATIVA:</h3>
-                    <p> <span id="melhor_tentativa_id">?</span>/15 Questões</p>
+                    <p> <span id="melhor_tentativa_id">?</span>/30 Questões</p>
                 </div>
             </div>
         </div>
@@ -237,22 +237,38 @@
 
 
     function plotarLeaderboard(resposta) {
-        const leaderboard = resposta;
+       const leaderboard = resposta;
 
-        let html = `
-                    <p class="podio">|🥇 - ${leaderboard[0].nome} - Acertou ${leaderboard[0].acertos} questões - ${formatarSegundos(leaderboard[0].tempoGasto)} </p>
-                    <p class="podio">|🥈 - ${leaderboard[1].nome} - Acertou ${leaderboard[1].acertos} questões - ${formatarSegundos(leaderboard[1].tempoGasto)} </p>
-                    <p class="podio">|🥉 - ${leaderboard[2].nome} - Acertou ${leaderboard[2].acertos} questões - ${formatarSegundos(leaderboard[2].tempoGasto)} </p>
-                    <p>| 4 - ${leaderboard[3].nome} - Acertou ${leaderboard[3].acertos} questões - ${formatarSegundos(leaderboard[3].tempoGasto)} </p>
-                    <p>| 5 - ${leaderboard[4].nome} - Acertou ${leaderboard[4].acertos} questões - ${formatarSegundos(leaderboard[4].tempoGasto)} </p>
-                    <p>| 6 - ${leaderboard[5].nome} - Acertou ${leaderboard[5].acertos} questões - ${formatarSegundos(leaderboard[5].tempoGasto)} </p>
-                    <p>| 7 - ${leaderboard[6].nome} - Acertou ${leaderboard[6].acertos} questões - ${formatarSegundos(leaderboard[6].tempoGasto)} </p>
-                    <p>| 8 - ${leaderboard[7].nome} - Acertou ${leaderboard[7].acertos} questões - ${formatarSegundos(leaderboard[7].tempoGasto)} </p>
-                    <p>| 9 - ${leaderboard[8].nome} - Acertou ${leaderboard[8].acertos} questões - ${formatarSegundos(leaderboard[8].tempoGasto)} </p>
-                    <p>| 10 -${leaderboard[9].nome} - Acertou ${leaderboard[9].acertos} questões - ${formatarSegundos(leaderboard[9].tempoGasto)} </p>
-                </div>
-        `
-        leaderboard_id.innerHTML = html
+        let leaderboardHTML = "";
+
+        for (let i = 0; i < leaderboard.length; i++) {
+     
+            if (!leaderboard[i]) return;
+
+            const jogador = leaderboard[i];
+            const posicao = i + 1;
+            const tempo = formatarSegundos(jogador.tempoGasto);
+
+
+            let prefixo = `| ${posicao}`;
+            let classePodio = '';
+
+            if (posicao === 1) {
+                prefixo = '|🥇';
+                classePodio = ' class="podio"';
+            } else if (posicao === 2) {
+                prefixo = '|🥈';
+                classePodio = ' class="podio"';
+            } else if (posicao === 3) {
+                prefixo = '|🥉';
+                classePodio = ' class="podio"';
+            }
+
+            // Acumula o HTML de cada linha
+            leaderboardHTML += `<p${classePodio}>${prefixo} - ${jogador.nome} - Acertou ${jogador.acertos} questões - ${tempo}</p>\n`;
+        }
+        leaderboard_id.innerHTML = leaderboardHTML
+
 
     }
 
