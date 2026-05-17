@@ -73,10 +73,24 @@ function listarLeaderboard() {
     return database.executar(instrucaoSql);
 }
 
+function listarMelhorTentativa(fk_usuario) {
+    console.log("ACESSEI O QUIZ MODEL - LISTAR MELHOR TENTATIVA \n\nfunction listarMelhorTentativa():" , fk_usuario);
+
+    var instrucaoSql = `
+        SELECT 
+            acertos
+            FROM tentativa
+            WHERE fk_usuario = ${fk_usuario} ORDER BY acertos DESC LIMIT 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     cadastrar,
     atualizar,
     desempenhoGeral,
-    listarLeaderboard
+    listarLeaderboard,
+    listarMelhorTentativa
 };

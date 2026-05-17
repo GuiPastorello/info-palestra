@@ -17,5 +17,8 @@ router.get("/desempenho-geral", function(req, res){
 router.get("/leaderboard", function(req, res){
     quizController.listarLeaderboard(req, res);
 })
+router.get("/melhor-tentativa/:fk_usuario", function(req, res){
+    quizController.listarMelhorTentativa(req, res);
+})
 
 module.exports = router;

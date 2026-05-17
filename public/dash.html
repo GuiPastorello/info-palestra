@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body class="body_dash" onload="onloadDash(), obterDadosGrafico(), ObterLeaderboard()">
+<body class="body_dash" onload="onloadDash(), obterDadosGrafico(), ObterLeaderboard(), buscarMelhorTentativa()">
     <!-- PERFIL DA DASHBOARD -->
     <header class="header_dash">
 
@@ -67,7 +67,7 @@
                 <img src="assets/imgs/melhor_tentativa.svg">
                 <div>
                     <h3>MELHOR TENTATIVA:</h3>
-                    <p> 30/30 Questões</p>
+                    <p> <span id="melhor_tentativa_id">?</span>/30 Questões</p>
                 </div>
             </div>
         </div>
@@ -106,14 +106,63 @@
 
 </html>
 <script>
+    function buscarMelhorTentativa() {
+        console.log('Buscandom melhor tentativa com ACERTOS...')
+
+        var fk_usuario = sessionStorage.ID_USUARIO;
+
+        // Verificando se há usuario logado
+        if (!fk_usuario || fk_usuario == "") {
+            console.log("Erro: Usuário não está logado!");
+            alert("Erro: Usuário não está logado!");
+            return false;
+        }
+
+        // Enviando o req necessaria com acertos
+        fetch(`/quiz/melhor-tentativa/${fk_usuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (resposta) {
+                // console.log("resposta atualizar: ", resposta);
+
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                    console.log("busca por melhor tentativa com exito");
+                    // alert("Tentativa concluída e salva com sucesso!");
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(resposta)
+                    plotarMelhorTehtativa(resposta)
+                });
+               
+                } else {
+                    throw "Houve um erro ao tentar buscar a tentativa!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO ao atualizar: ${resposta}`);
+                alert("Erro ao buscar tentativa: " + resposta);
+            });
+
+            
+    }
+    function plotarMelhorTehtativa(resposta){
+        let melhorTentativa = resposta[0].acertos;
+
+        melhor_tentativa_id.innerHTML = melhorTentativa;
+    }
+
+
     function ObterLeaderboard() {
 
         fetch(`/quiz/leaderboard`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     // resposta.reverse();
-                    console.log(`Cheguei ${resposta}`)
+                    // console.log(`Cheguei ${resposta}`)
                     plotarLeaderboard(resposta);
 
                 });
@@ -125,10 +174,10 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
-    function plotarLeaderboard(resposta){
+    function plotarLeaderboard(resposta) {
         const leaderboard = resposta;
-        
-        let html=`
+
+        let html = `
                     <p class="podio">|🥇 - ${leaderboard[0].nome} - Acertou ${leaderboard[0].acertos} questões - ${leaderboard[0].tempoGasto} segundos</p>
                     <p class="podio">|🥈 - ${leaderboard[1].nome} - Acertou ${leaderboard[1].acertos} questões - ${leaderboard[1].tempoGasto} segundos</p>
                     <p class="podio">|🥉 - ${leaderboard[2].nome} - Acertou ${leaderboard[2].acertos} questões - ${leaderboard[2].tempoGasto} segundos</p>
@@ -141,7 +190,7 @@
                     <p>| 10 -${leaderboard[9].nome} - Acertou ${leaderboard[9].acertos} questões - ${leaderboard[9].tempoGasto} segundos</p>
                 </div>
         `
-        leaderboard_id.innerHTML=html 
+        leaderboard_id.innerHTML = html
 
     }
 
@@ -150,9 +199,9 @@
         fetch(`/quiz/desempenho-geral`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     // resposta.reverse();
-                    console.log(`Cheguei ${resposta}`)
+                    // console.log(`Cheguei ${resposta}`)
                     plotarGrafico(resposta);
 
                 });

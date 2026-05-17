@@ -73,39 +73,42 @@ function desempenhoGeral(req, res) {
     });
 }
 
-// function buscarAquariosPorEmpresa(req, res) {
-//   var idUsuario = req.params.idUsuario;
-
-//   aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
-//     if (resultado.length > 0) {
-//       res.status(200).json(resultado);
-//     } else {
-//       res.status(204).json([]);
-//     }
-//   }).catch(function (erro) {
-//     console.log(erro);
-//     console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
-//     res.status(500).json(erro.sqlMessage);
-//   });
-// }
 
 function listarLeaderboard(req, res) {
+
     quizModel.listarLeaderboard().then((resultado) => {
-    if (resultado.length > 0) {
-      res.status(200).json(resultado);
-    } else {
-      res.status(204).json([]);
-    }
-  }).catch(function (erro) {
-    console.log(erro);
-    console.log("Houve um erro ao buscar a leaderboard: ", erro.sqlMessage);
-    res.status(500).json(erro.sqlMessage);
-  });
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).json([]);
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a leaderboard: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function listarMelhorTentativa(req, res) {
+    let fk_usuario = req.params.fk_usuario;
+
+    quizModel.listarMelhorTentativa(fk_usuario).then((resultado) => {
+        if (resultado.length > 0) { 
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).json([]);
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a leaderboard: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
 }
 
 module.exports = {
     cadastrar,
     atualizar,
     desempenhoGeral,
-    listarLeaderboard
+    listarLeaderboard,
+    listarMelhorTentativa
 };
