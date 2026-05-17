@@ -92,7 +92,7 @@ function listarMelhorTempo(fk_usuario) {
        SELECT 
             timestampdiff(SECOND, hora_inicio, hora_fim) as tempoGasto
             FROM tentativa
-            WHERE fk_usuario = 1 ORDER BY tempoGasto ASC
+            WHERE fk_usuario = ${fk_usuario} ORDER BY tempoGasto ASC
             LIMIT 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
